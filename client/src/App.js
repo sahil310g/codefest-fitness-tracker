@@ -1,18 +1,21 @@
 import "./App.css";
 import Login from "./pages/Login";
-// import { Home } from "./pages/Home";
-import Landing from "./pages/Landing";
-import Register from "./pages/Register";
+import { Home } from "./pages/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ExerciseDescription from "./pages/ExerciseDescription";
 
 function App() {
   return (
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Landing />} />
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup  " element={<Register />} />
+          <Route
+            path="/exercise-description"
+            element={<ExerciseDescription />}
+          />
 
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         </Routes>
