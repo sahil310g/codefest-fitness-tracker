@@ -83,6 +83,7 @@ const Dashboard = () => {
       <BarGraph />
       {getGoal && (
         <SetGoals
+          userData={userData}
           setAddPopup={setAddPopup}
           setGetGoal={setGetGoal}
           name={"Set Goals"}
@@ -90,6 +91,7 @@ const Dashboard = () => {
       )}
       {addPopup && (
         <SetGoals
+          userData={userData}
           setAddPopup={setAddPopup}
           setGetGoal={setGetGoal}
           name={"Add Logs"}

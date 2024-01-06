@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 import {
   Card,
@@ -10,11 +11,56 @@ import {
   Link,
 } from "@mui/material";
 
-const SetGoals = ({ setAddPopup, setGetGoal, name }) => {
-    const handleSubmit = ()=>{
-        (name==="Set Goals")? setGetGoal(false) :setAddPopup(false);
-    }
+const SetGoals = ({ userData, setAddPopup, setGetGoal, name, user }) => {
   const [arr, setArr] = useState([0, 0, 0, 0, 0, 0]);
+  const token = localStorage.getItem("token");
+  let data = {};
+  const handleSubmit = async () => {
+    data = {
+      running: arr[0],
+      walking: arr[1],
+      calorie: arr[2],
+      water: arr[3],
+      dancing: arr[4],
+      swimming: arr[5]
+    };
+
+    let goalData = {
+        email : userData.email,
+        goals : data
+    }
+
+    let addData = {
+        date : new Date(),
+        email : userData.email,
+        activities : data
+    }
+
+
+    if (name === "Set Goals") {
+      setGetGoal(false);
+      try {
+        const response = await axios.post("http://localhost:5000/auth/getdata", goalData, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      setAddPopup(false);
+      try {
+        const response = await axios.post("http://localhost:5000/auth/setactivities", addData, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
 
   return (
     <>
@@ -119,7 +165,9 @@ const SetGoals = ({ setAddPopup, setGetGoal, name }) => {
               color: "white",
               paddingX: "15px",
             }}
-            onClick={() => {handleSubmit()}}
+            onClick={() => {
+              handleSubmit();
+            }}
           >
             {name}
           </Button>
