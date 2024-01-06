@@ -1,0 +1,11 @@
+/* CircularBarMeter styling */
+.circle-base {
+    stroke: #d3d3d3;
+    fill: transparent;
+  }
+  
+  .circle-progress {
+    stroke: rgb(140, 86, 248);
+    fill: transparent;
+  }
+  
