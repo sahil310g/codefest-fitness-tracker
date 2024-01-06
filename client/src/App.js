@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 // import { Home } from "./pages/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ExerciseDescription from "./pages/ExerciseDescription";
+import AboutUs from "./pages/AboutUs";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route
+          <Route path="/AboutUs" element={<AboutUs />} />
+          <Route 
             path="/exercise-description"
             element={<ExerciseDescription />}
           />
