@@ -1,4 +1,8 @@
-/* CircularBarMeter styling */
+.chart{
+  margin: 0 4rem;
+  display: flex;
+}
+
 .circle-base {
     stroke: #d3d3d3;
     fill: transparent;

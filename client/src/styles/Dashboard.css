@@ -1,0 +1,14 @@
+.charts{
+    display: flex;
+    flex-direction: row;
+    padding: 2rem;
+    background-color: grey;
+    justify-content: center;
+}
+
+.chartBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

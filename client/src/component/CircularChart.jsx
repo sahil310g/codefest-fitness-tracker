@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../styles/CircularChart.css";
 
 function CircularChart({ completed = 10, total = 100 }) {
-  const percentage = (completed / total) * 100;
+  const percentage = (completed>=total)?100: (completed / total) * 100;
   const [radius, setRadius] = useState(40); // Radius of the circle
   const [strokeWidth, setStrokeWidth] = useState(10); // Width of the stroke
   const [normalizedRadius, setNormalizedRadius] = useState(
@@ -12,7 +12,7 @@ function CircularChart({ completed = 10, total = 100 }) {
   const strokeDashoffset = circumference - (percentage / 100) * circumference;
 
   return (
-    <div>
+    <div className="chart">
       <svg height={radius * 2} width={radius * 2}>
         <circle
           className="circle-base"
@@ -30,9 +30,9 @@ function CircularChart({ completed = 10, total = 100 }) {
           cx={radius}
           cy={radius}
         />
-        <text x={radius} y={radius} textAnchor="middle" fontSize="15">
+        {/* <text x={radius} y={radius} textAnchor="middle" fontSize="15">
           {percentage}%
-        </text>
+        </text> */}
       </svg>
     </div>
   );
