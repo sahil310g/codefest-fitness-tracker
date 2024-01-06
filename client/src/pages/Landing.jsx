@@ -84,9 +84,10 @@ const Landing = () => {
               Getting Started
             </Typography>
             <Typography variant="h6">
-              Here, you will find everything essential for accessing top-tier
-              career guidance, ensuring that your professional path is
-              illuminated with clarity and precision.
+              Track your fitness journey effortlessly with our intuitive app.
+              Monitor your steps, calories burned, heart rate, and set
+              personalized goals to achieve your health and fitness milestones
+              with ease.
             </Typography>
 
             <Box

@@ -31,8 +31,8 @@ const UserDashboard = ({ userD }) => {
   let person = "-";
 
   const rows = [
-    createData("Email ID", person),
-    createData("Name", person),
+    createData("Email ID", userD?.user?.email),
+    createData("Name", userD?.user?.fullName),
     createData("Age", person),
     createData("Gender", person),
     createData("Height (in cm)", person),
