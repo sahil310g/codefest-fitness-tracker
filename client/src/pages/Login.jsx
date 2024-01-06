@@ -25,17 +25,15 @@ function Login() {
       else if (email.indexOf("@") == -1)
         alert("Please enter a valid email address");
       else {
-        const response = await axios.post("http://localhost:5000/login", null, {
-          headers: {
-            email,
-            password,
-          },
+        const response = await axios.post("http://localhost:5000/user/login", {
+          email,
+          password,
         });
 
         console.log(response);
-        alert(response.data.message);
+        // alert(response.data.message);
         localStorage.setItem("token", response.data.token);
-        navigate("/");
+        navigate("/dashboard");
       }
     } catch (error) {
       console.log(error);
