@@ -10,7 +10,7 @@ const Landing = () => {
   ///for protected routes
   useEffect(() => {
     const fetchme = async () => {
-      const url = "https://sih-r2.onrender.com/me";
+      const url = "http://localhost:5000/me";
       const token = localStorage.getItem("token");
       console.log(token);
       // Check if the token exists before making the request

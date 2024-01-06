@@ -32,17 +32,12 @@ function Register() {
         alert("Please enter a valid email address");
       else if (password !== confirmpassword)
         alert("password and confirmPassword does not match");
-      else if (password.length < 8)
-        alert("Password must have atleast 8 characters");
       else {
-        const response = await axios.post(
-          "https://sih-r2.onrender.com/signup",
-          {
-            username: UserName,
-            email,
-            password,
-          }
-        );
+        const response = await axios.post("http://localhost:5000/signup", {
+          username: UserName,
+          email,
+          password,
+        });
 
         console.log(response);
         alert(response.data.message);
