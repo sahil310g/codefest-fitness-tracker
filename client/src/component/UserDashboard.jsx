@@ -1,6 +1,6 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import axios from "axios";
+// import { useState, useEffect } from "react";
+// import axios from "axios";
 import {
   Box,
   FormControl,
@@ -24,36 +24,15 @@ function createData(name, calories) {
   return { name, calories };
 }
 
-const UserDashboard = () => {
+const UserDashboard = ({ userD }) => {
   //   const [userdata, setuserdata] = useState({});
-
-  useEffect(() => {
-    const url = "http://localhost:5000/auth/getdata";
-    const token = localStorage.getItem("token");
-    const dashboardHandler = async () => {
-      try {
-        const response = await axios.get(url, {
-          header: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        console.log("this is response data", response.data);
-
-        const userdata = response.user;
-        //   const user_email = localStorage.getItem("email");
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    dashboardHandler();
-  }, []);
+  console.log("this is userD", userD);
 
   let person = "-";
 
   const rows = [
-    createData("Email ID", "emailID"),
-    createData("Username", person),
+    createData("Email ID", person),
+    createData("Name", person),
     createData("Age", person),
     createData("Gender", person),
     createData("Height (in cm)", person),
