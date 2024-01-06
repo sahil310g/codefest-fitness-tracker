@@ -4,6 +4,7 @@ import CircularChart from "../component/CircularChart";
 import "../styles/Dashboard.css";
 import BarGraph from "../component/BarGraph";
 import { useState } from "react";
+import SetGoals from "../component/SetGoals";
 
 const Dashboard = () => {
   const [addPopup, setAddPopup] = useState(false);
@@ -43,6 +44,12 @@ const Dashboard = () => {
         </button>
       </div>
       <BarGraph />
+      {
+        getGoal && <SetGoals setAddPopup={setAddPopup} setGetGoal={setGetGoal} name={'Set Goals'}/>
+      }
+      {
+        addPopup && <SetGoals setAddPopup={setAddPopup} setGetGoal={setGetGoal} name={'Add Logs'}/>
+      }
     </>
   );
 };
