@@ -43,7 +43,7 @@ const loginUser = async (req, res) => {
         }
     
         const token = jwt.sign({ email: user.email }, secretKey, { expiresIn: '2h' });
-        res.json({ token });
+        res.json({ token, message: 'Login successful' });
       } catch (error) {
         res.status(500).json({ message: 'Server error' });
       }
@@ -54,51 +54,60 @@ const setGoals = async (req, res) => {
   try {
     const { email, goals } = req.body;
     const user = await User.findOne({ email });
+
     if (!user) {
-      return res.status(401).json({ message: 'Email not exist'});
+      return res.status(401).json({ message: 'Email not exist' });
     }
-    user.goals = goals;
+    user.goals = [...user.goals, ...goals];
+
     await user.save();
     res.status(201).json({ message: 'Goals set successfully' });
-  }
-  catch (error) {
+  } catch (error) {
+    console.error(error);
     res.status(500).json({ message: 'Server error' });
   }
 };
+
 
 const setActivities = async (req, res) => {
   try {
     const { date, email, activities } = req.body;
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(401).json({ message: 'Email not exist'});
+      return res.status(401).json({ message: 'Email not exist' });
     }
     const index = user.activities.findIndex((activity) => activity.date === date);
     if (index !== -1) {
-      user.activities[index].activities = activities;
+      user.activities[index].dailyActivity = [...user.activities[index].dailyActivity, ...activities];
     } else {
-      user.activities.push({ date, activities });
+      user.activities.push({ date, dailyActivity: activities });
     }
+
     await user.save();
     res.status(201).json({ message: 'Activities set successfully' });
-  }
-  catch (error) {
+  } catch (error) {
+    console.error(error);
     res.status(500).json({ message: 'Server error' });
   }
 };
+
 
 const setUserInfo = async (req, res) => {
   try {
     const { email, userInfo } = req.body;
     const user = await User.findOne({ email });
+
     if (!user) {
-      return res.status(401).json({ message: 'Email not exist'});
+      return res.status(401).json({ message: 'Email not exist' });
     }
-    user.userInfo = userInfo;
+
+    // Merge the existing userInfo with the new userInfo using the spread operator
+    user.userInfo = [...user.userInfo, ...userInfo];
+
     await user.save();
     res.status(201).json({ message: 'User info set successfully' });
-  }
-  catch (error) {
+  } catch (error) {
+    console.error(error);
     res.status(500).json({ message: 'Server error' });
   }
 };

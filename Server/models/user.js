@@ -8,12 +8,12 @@ const userInfoSchema = new mongoose.Schema({
 });
 
 const activitySchema = new mongoose.Schema({
-  running : String,
-  walking : String,
-  calorie: String,
-  water : String,
-  dancing : String,
-  swimming : String
+  running : int,
+  walking : int,
+  calorie: int,
+  water : int,
+  dancing : int,
+  swimming : int
 });
 
 const calanderSchenma = new mongoose.Schema({
