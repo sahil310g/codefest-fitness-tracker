@@ -16,8 +16,7 @@ const registerUser = async (req, res) => {
           const newUser = new User({
             fullName,
             email,
-            password: hashedPassword,
-            bookmarks: [],
+            password: hashedPassword
           });
           await newUser.save();
           res.status(201).json({ message: 'Account created successfully' });
@@ -51,4 +50,59 @@ const loginUser = async (req, res) => {
 };
 
 
-    module.exports = { registerUser, loginUser };
+const setGoals = async (req, res) => {
+  try {
+    const { email, goals } = req.body;
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(401).json({ message: 'Email not exist'});
+    }
+    user.goals = goals;
+    await user.save();
+    res.status(201).json({ message: 'Goals set successfully' });
+  }
+  catch (error) {
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
+const setActivities = async (req, res) => {
+  try {
+    const { date, email, activities } = req.body;
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(401).json({ message: 'Email not exist'});
+    }
+    const index = user.activities.findIndex((activity) => activity.date === date);
+    if (index !== -1) {
+      user.activities[index].activities = activities;
+    } else {
+      user.activities.push({ date, activities });
+    }
+    await user.save();
+    res.status(201).json({ message: 'Activities set successfully' });
+  }
+  catch (error) {
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
+const setUserInfo = async (req, res) => {
+  try {
+    const { email, userInfo } = req.body;
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(401).json({ message: 'Email not exist'});
+    }
+    user.userInfo = userInfo;
+    await user.save();
+    res.status(201).json({ message: 'User info set successfully' });
+  }
+  catch (error) {
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
+
+
+module.exports = { registerUser, loginUser , setGoals, setActivities, setUserInfo };
