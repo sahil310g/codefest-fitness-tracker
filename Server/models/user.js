@@ -1,33 +1,33 @@
-const mongoose = require('mongoose');
-
-const userSchema = new mongoose.Schema({
-  fullName: String,
-  email: String,
-  userInfo :[userInfoSchema],
-  goals : [activitySchema],
-  activities: [calanderSchenma], 
-  password: String
-});
+const mongoose = require("mongoose");
 
 const userInfoSchema = new mongoose.Schema({
   gender: String,
   age: Number,
   height: Number,
-  weight: Number
+  weight: Number,
+});
+
+const activitySchema = new mongoose.Schema({
+  running: Number,
+  walking: Number,
+  calorie: Number,
+  water: Number,
+  dancing: Number,
+  swimming: Number,
 });
 
 const calanderSchenma = new mongoose.Schema({
   date: Date,
-  dailyActivity: [activitySchema]
+  dailyActivity: [activitySchema],
 });
 
-const activitySchema = new mongoose.Schema({
-  running : String,
-  walking : String,
-  calorie: String,
-  water : String,
-  dancing : String,
-  swimming : String
+const userSchema = new mongoose.Schema({
+  fullName: String,
+  email: String,
+  userInfo: [userInfoSchema],
+  goals: [activitySchema],
+  activities: [calanderSchenma],
+  password: String,
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model("User", userSchema);

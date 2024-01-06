@@ -33,15 +33,18 @@ function Register() {
       else if (password !== confirmpassword)
         alert("password and confirmPassword does not match");
       else {
-        const response = await axios.post("http://localhost:5000/signup", {
-          username: UserName,
-          email,
-          password,
-        });
+        const response = await axios.post(
+          "http://localhost:5000/user/register",
+          {
+            fullName: UserName,
+            email,
+            password,
+          }
+        );
 
         console.log(response);
         alert(response.data.message);
-        localStorage.setItem("token", response.data.token);
+
         navigate("/login");
       }
     } catch (error) {
