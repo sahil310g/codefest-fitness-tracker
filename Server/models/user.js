@@ -25,7 +25,9 @@ const activitySchema = new mongoose.Schema({
   running : String,
   walking : String,
   calorie: String,
-  water : String
+  water : String,
+  dancing : String,
+  swimming : String
 });
 
 module.exports = mongoose.model('User', userSchema);

@@ -5,7 +5,7 @@ const {authenticateUser} = require('../middleware/auth');
 
 const router = express.Router();
 
-router.get('/protected',authenticateUser, authController.protectedRoute);
+router.get('/getdata',authenticateUser, authController.protectedRoute);
 
 module.exports = router;
 

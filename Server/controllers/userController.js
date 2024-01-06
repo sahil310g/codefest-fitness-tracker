@@ -103,4 +103,6 @@ const setUserInfo = async (req, res) => {
   }
 };
 
-module.exports = { registerUser, loginUser };
+
+
+module.exports = { registerUser, loginUser , setGoals, setActivities, setUserInfo };
