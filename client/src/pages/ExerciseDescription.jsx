@@ -1,8 +1,8 @@
 import React from "react";
 
 const ExerciseDescription = () => {
-  return <div>
-
+  return <div className="description-container">
+    
   </div>
 };
 
