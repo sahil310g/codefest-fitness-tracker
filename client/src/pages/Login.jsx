@@ -75,7 +75,7 @@ function Login() {
             color: "inherit",
           }}
         >
-          LangMODLabs
+          ThriveTracker
         </Typography>
 
         <Button
