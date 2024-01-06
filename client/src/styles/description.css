@@ -1,5 +1,26 @@
 .description-container {
-    background: url('https://media.istockphoto.com/id/628504820/photo/they-keep-each-other-going.jpg?s=1024x1024&w=is&k=20&c=PWqw3MxCi2lgIDw2Q8ogThpgXYekesjMCJFPIWBqkZE=');
+    /* background-image: url('https://img.freepik.com/free-photo/pretty-young-woman-running-city_1301-4119.jpg?w=1800&t=st=1704531086~exp=1704531686~hmac=290c2f7131e08856adfc6d81d10e315b39f35a0ea5ce4c7c328a25bfd24c226f'); */
     min-height: 100vh;
     min-width: 100vw;
+    /* opacity: 0.4; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.heading {
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-bottom: 10rem;
+    margin-top: 2rem;
+}
+
+.data {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.outer-container {
+    /* background-color: black; */
 }
