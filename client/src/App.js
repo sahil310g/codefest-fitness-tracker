@@ -5,7 +5,7 @@ import Landing from "./pages/Landing";
 import Dashboard from "./pages/Dashboard";
 // import { Home } from "./pages/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ExerciseDescription from "./pages/ExerciseDescription";
+import Exercises from "./pages/Exercises";
 
 function App() {
   return (
@@ -16,10 +16,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route
-            path="/exercise-description"
-            element={<ExerciseDescription />}
-          />
+          <Route path="/exercise" element={<Exercises />}/>
 
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         </Routes>
