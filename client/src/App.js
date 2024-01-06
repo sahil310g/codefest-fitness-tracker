@@ -1,6 +1,8 @@
 import "./App.css";
 import Login from "./pages/Login";
-import { Home } from "./pages/Home";
+import Register from "./pages/Register";
+import Landing from "./pages/Landing";
+// import { Home } from "./pages/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ExerciseDescription from "./pages/ExerciseDescription";
 
@@ -9,9 +11,9 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/signup  " element={<Register />} />
+          <Route path="/signup" element={<Register />} />
           <Route
             path="/exercise-description"
             element={<ExerciseDescription />}
